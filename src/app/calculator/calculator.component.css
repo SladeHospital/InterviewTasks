@@ -1,0 +1,30 @@
+.operatorButton  {
+  background-color: rgb(218, 218, 218);
+  border: none;
+  color: black;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.resetButton  {
+  background-color: rgb(218, 218, 218);
+  border: none;
+  color: black;
+  padding: 8px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.operatorLabel{
+  margin: 5px 5px;
+
+}

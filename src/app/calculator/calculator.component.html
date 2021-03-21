@@ -1,0 +1,24 @@
+<fieldset style="width:350px">
+  <legend>
+    <h1>Calculator</h1>
+  </legend>
+  <h4 data-test-id="total-operations">Total operations performed: {{count}}</h4>
+  <div>
+    <div>
+      <input [(ngModel)]="numOne" type="number" data-test-id="app-input1">
+      <label class="operatorLabel" data-test-id="selected-operator">{{currentOperator}}</label>
+      <input [(ngModel)]="numTwo" type="number" data-test-id="app-input2">
+    </div>
+    <div>
+      <button class="operatorButton" (click)="calculateAnswer(0)" data-test-id="addButton">+</button>
+      <button class="operatorButton" (click)="calculateAnswer(1)" data-test-id="subtractButton">-</button>
+      <button class="operatorButton" (click)="calculateAnswer(2)" data-test-id="multiplyButton">*</button>
+      <button class="operatorButton" (click)="calculateAnswer(3)" data-test-id="divideButton">/</button>
+    </div>
+    <br *ngIf="!showResult">
+    <div *ngIf="showResult" data-test-id="result">Result: {{result}}</div>
+    <div>
+      <button class="resetButton" (click)="resetCalc()" data-test-id="resetButton">Reset</button>
+    </div>
+  </div>
+</fieldset>

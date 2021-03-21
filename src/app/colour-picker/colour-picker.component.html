@@ -1,0 +1,27 @@
+<fieldset style="width:300px">
+  <legend><h1>Colour Picker</h1></legend>
+  <div class="selectedColor"
+  data-test-id="seltectedColor"
+  [style.background-color]="currentColour"></div>
+
+  <div class="colorPickerOptions"
+  data-test-id="colorPickerOptions">
+    <div class = "smallSquare"
+    (click)="changeColour('red')"
+    [style.background-color]="'red'"></div>
+
+    <div class="smallSquare"
+    (click)="changeColour('yellow')"
+    [style.background-color]="'yellow'"></div>
+
+    <div class="smallSquare"
+    (click)="changeColour('blue')"
+    [style.background-color]="'blue'"></div>
+
+    <div class="smallSquare"
+    (click)="changeColour('green')"
+    [style.background-color]="'green'"></div>
+  </div>
+</fieldset>
+
+
