@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'colour-picker',
+  selector: 'app-colour-picker',
   templateUrl: './colour-picker.component.html',
   styleUrls: ['./colour-picker.component.css']
 })
@@ -9,12 +9,11 @@ export class ColourPickerComponent implements OnInit {
   currentColour = 'red';
   constructor() { }
 
-  changeColour(colour: string){
+  changeColour(colour: string): void{
     this.currentColour = colour
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
-
 }
 
