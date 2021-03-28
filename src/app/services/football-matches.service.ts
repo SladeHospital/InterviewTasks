@@ -1,5 +1,9 @@
-import { FootballMatch } from '../interfaces/match-interface';
+import { FootballMatch, RawFootballResponse } from './../interfaces/match-interface';
+import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, range, throwError } from 'rxjs';
+import { map, filter, catchError, tap, switchMap } from 'rxjs/operators';
+import { errorMonitor } from 'node:events';
 
 @Injectable({
   providedIn: 'root'
@@ -7,29 +11,28 @@ import { Injectable } from '@angular/core';
 
 export class FootballService {
   matches = new Array<FootballMatch>();
+  private footballUrl = 'https://jsonmock.hackerrank.com/api/football_competitions';
+  // 'https://jsonmock.hackerrank.com/api/football_competitions?year='
 
-  getMatches(year: number): FootballMatch[]{
-    // this.axios.get('https://jsonmock.hackerrank.com/api/football_competitions?year=' + year)
-    // .then((response: any) => {
-    //   console.log('Success');
-    //   this.matchList = [];
-    //   const returnedMatches = response.data.data;
-    //   returnedMatches.forEach((match: any) => {
-    //     this.matchList.push(new FootballMatchClass(match));
-    //   });
-    //   this.noMatches = !(this.matchList.length > 0);
+  constructor(private http: HttpClient) {}
 
-    //   console.log(this.matchList);
-    // })
-    // .catch((error: any) => {
-    //   console.log(error);
-    //   this.matchList = [];
-    //   this.noMatches = true;
-    // });
-
-    return this.matches;
+  getMatchesByYear(year: number): Observable<FootballMatch[]>{
+    return this.http.get<RawFootballResponse>(this.footballUrl + `?year=${year}`)
+    .pipe(
+      tap(rawData => console.log(rawData)),
+      map(rawData => rawData.data),
+      catchError(this.handleError)
+    );
   }
 
-  constructor() { }
-
+  private handleError(err: HttpErrorResponse): Observable<never>{
+    let errorMessage = '';
+    if (err.error instanceof ErrorEvent) {
+      errorMessage = `An error occurred: ${err.error.message}`;
+    } else {
+      errorMessage = `Server returned code: ${err.status}, error message is ${err.message}`;
+    }
+    console.error(errorMessage);
+    return throwError(errorMessage);
+  }
 }

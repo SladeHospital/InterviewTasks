@@ -10,7 +10,7 @@ export class ColourPickerComponent implements OnInit {
   constructor() { }
 
   changeColour(colour: string): void{
-    this.currentColour = colour
+    this.currentColour = colour;
   }
 
   ngOnInit(): void {
