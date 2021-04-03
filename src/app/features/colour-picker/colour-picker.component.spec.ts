@@ -9,6 +9,7 @@ describe('ColourPickerComponent', () => {
   let component: ColourPickerComponent;
   let fixture: ComponentFixture<ColourPickerComponent>;
 
+  // tslint:disable-next-line: deprecation
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ColourPickerComponent ]

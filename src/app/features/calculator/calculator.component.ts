@@ -15,25 +15,7 @@ export class CalculatorComponent implements OnInit{
   numOne = 0;
   numTwo = 0;
 
-  constructor() {
-
-  }
-
-  // private numberOne = 0;
-  // get numOne(): number{
-  //   return this.numberOne;
-  // }
-  // set numOne(val: number){
-  //   this.numberOne = val;
-  // }
-
-  // private numberTwo = 0;
-  // get numTwo(): number{
-  //   return this.numberTwo;
-  // }
-  // set numTwo(val: number){
-  //   this.numberTwo = val;
-  // }
+  constructor() {}
 
   resetCalc(): void{
     this.result = 0;

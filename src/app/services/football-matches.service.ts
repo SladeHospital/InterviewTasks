@@ -1,4 +1,4 @@
-import { FootballMatch, RawFootballResponse } from './../interfaces/match-interface';
+import { FootballMatchData, FootballMatch } from './../interfaces/match-interface';
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, range, throwError } from 'rxjs';
@@ -10,14 +10,14 @@ import { errorMonitor } from 'node:events';
 })
 
 export class FootballService {
-  matches = new Array<FootballMatch>();
+  matches = new Array<FootballMatchData>();
   private footballUrl = 'https://jsonmock.hackerrank.com/api/football_competitions';
   // 'https://jsonmock.hackerrank.com/api/football_competitions?year='
 
   constructor(private http: HttpClient) {}
 
-  getMatchesByYear(year: number): Observable<FootballMatch[]>{
-    return this.http.get<RawFootballResponse>(this.footballUrl + `?year=${year}`)
+  getMatchesByYear(year: number): Observable<FootballMatchData[]>{
+    return this.http.get<FootballMatch>(this.footballUrl + `?year=${year}`)
     .pipe(
       tap(rawData => console.log(rawData)),
       map(rawData => rawData.data),

@@ -1,3 +1,4 @@
+import { FeaturesModule } from './features/features-module.module';
 import { Component, VERSION } from '@angular/core';
 
 @Component({
@@ -6,6 +7,5 @@ import { Component, VERSION } from '@angular/core';
   styleUrls: ['./app.component.styl']
 })
 export class AppComponent {
-  title = 'InterviewTasks';
-  name = 'Angular ' + VERSION.major;
+  title = 'Interview Tasks';
 }

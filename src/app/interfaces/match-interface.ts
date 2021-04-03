@@ -1,12 +1,12 @@
-export interface RawFootballResponse {
+export interface FootballMatch {
   page: number;
   per_page: number;
   total: number;
   total_pages: number;
-  data: FootballMatch[];
+  data: FootballMatchData[];
 }
 
-export interface FootballMatch {
+export interface FootballMatchData {
     name: string;
     country: string;
     year: number;

@@ -1,6 +1,6 @@
 import { FootballService } from '../../services/football-matches.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FootballMatch } from 'src/app/interfaces/match-interface';
+import { FootballMatchData } from 'src/app/interfaces/match-interface';
 import { Observable, Subscription } from 'rxjs';
 
 @Component({
@@ -11,7 +11,7 @@ import { Observable, Subscription } from 'rxjs';
 
 export class FootballMatchesComponent implements OnInit, OnDestroy {
   noMatches = false;
-  matchList: FootballMatch[] = [];
+  matchList: FootballMatchData[] = [];
   errorMessage = '';
   sub!: Subscription;
 
@@ -30,15 +30,7 @@ export class FootballMatchesComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnInit(): void {
-    // this.sub = this.footballService.getMatchesByYear(year)
-    // // This use of .subscribe is not actually deprecated
-    // // tslint:disable-next-line: deprecation
-    // .subscribe({
-    //   next: matches => this.matchList = matches,
-    //   error: err => this.errorMessage = err
-    // });
-  }
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
